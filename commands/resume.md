@@ -1,0 +1,6 @@
+---
+description: "Pick up where the last thread stopped: reads NEXT.md and PROJECT_STATUS.md (and the plan when there is one), lists the next 3 steps"
+allowed-tools: Bash(python:*)
+---
+
+Read NEXT.md, PROJECT_STATUS.md and root INDEX.md only. If `.kickoff/fields.json` has tier `plan` and `.kickoff/plan.json` exists, first run `python tools/plan.py show` and `python tools/plan.py next --count 3` (if tools/plan.py is missing use `python "${CLAUDE_PLUGIN_ROOT}/kit/tools/plan.py"`) and use that live output for the current phase, current step, late items and the next steps: it reflects any date or priority changed since the last thread, so do not copy dates from NEXT.md. With tier `fields`, use the front matter keys (`project_status`, `deadline`, `target_date`, `blocked_by`, `next`) first. If NEXT.md front matter says `saved: checkpoint`, say so in one line: the last save was a light checkpoint, so knowledge capture, reindex and budget checks are still pending for the next /kickoff:wrapup. Reply in under 12 lines: where we stopped (from NEXT.md), half-done work, the next 3 steps, anything blocked or late, and any "Plan changes proposed" waiting for me. If NEXT.md is missing, say so and use PROJECT_STATUS.md "Next steps". Open other files only if I ask.

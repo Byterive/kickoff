@@ -1,0 +1,4 @@
+# account credentials and local SDF auth
+.sdf
+*.token
+project.json.local

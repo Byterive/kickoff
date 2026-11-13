@@ -1,0 +1,11 @@
+{
+  "schema": 1,
+  "phases": [
+    {
+      "id": "p1",
+      "name": "A",
+      "actual_start": "2026-11-10",
+      "actual_end": "2026-11-01"
+    }
+  ]
+}

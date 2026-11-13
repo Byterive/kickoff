@@ -1,0 +1,6 @@
+# raw market data and big result dumps (keep scripts and reports)
+data/raw/
+data/*.csv
+data/*.parquet
+*.feather
+results/*.pkl

@@ -1,0 +1,7 @@
+# raw data and big outputs (keep scripts and reports)
+data/raw/
+*.parquet
+*.feather
+*.pkl
+.ipynb_checkpoints/
+.venv/

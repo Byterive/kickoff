@@ -1,0 +1,26 @@
+{
+  "schema": 1,
+  "priority": null,
+  "phases": [
+    {
+      "id": "p1",
+      "name": "Only phase",
+      "start": "",
+      "end": "",
+      "status": "PLANNED",
+      "actual_start": "",
+      "actual_end": "",
+      "steps": [
+        {
+          "id": "p1-s1",
+          "name": "Only step",
+          "start": "",
+          "end": "",
+          "status": "PLANNED",
+          "actual_start": "",
+          "actual_end": ""
+        }
+      ]
+    }
+  ]
+}

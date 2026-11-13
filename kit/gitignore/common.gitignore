@@ -1,0 +1,20 @@
+# secrets
+.env
+.env.*
+*.pem
+*.key
+secrets/
+# editors and OS
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
+# Claude local state
+.claude/settings.local.json
+.claude/settings.json.bak
+.claude/settings.local.json.bak
+# caches
+__pycache__/
+*.pyc
+node_modules/

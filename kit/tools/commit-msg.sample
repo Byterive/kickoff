@@ -1,0 +1,3 @@
+#!/bin/sh
+# Install: copy to .git/hooks/commit-msg. Strips any Claude attribution lines from commit messages.
+sed -i -e '/^[Cc]o-[Aa]uthored-[Bb]y:.*[Cc]laude/d' -e '/[Gg]enerated with.*[Cc]laude/d' "$1"

@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "phases": [
+    {
+      "id": "p1",
+      "name": "A",
+      "steps": [
+        {
+          "id": "p1",
+          "name": "B"
+        }
+      ]
+    }
+  ]
+}

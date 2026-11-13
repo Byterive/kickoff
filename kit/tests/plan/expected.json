@@ -1,0 +1,210 @@
+{
+  "validate": {
+    "valid/minimal.json": {
+      "exit": 0
+    },
+    "valid/empty_dates.json": {
+      "exit": 0
+    },
+    "valid/full.json": {
+      "exit": 0
+    },
+    "valid/unknown_keys.json": {
+      "exit": 0
+    },
+    "valid/status_missing.json": {
+      "exit": 0
+    },
+    "invalid/bad_schema.json": {
+      "exit": 2,
+      "stdout_contains": [
+        "unsupported schema"
+      ]
+    },
+    "invalid/no_schema.json": {
+      "exit": 2,
+      "stdout_contains": [
+        "schema must be an integer"
+      ]
+    },
+    "invalid/priority_zero.json": {
+      "exit": 2,
+      "stdout_contains": [
+        "priority must be"
+      ]
+    },
+    "invalid/priority_text.json": {
+      "exit": 2,
+      "stdout_contains": [
+        "priority must be"
+      ]
+    },
+    "invalid/phases_not_list.json": {
+      "exit": 2,
+      "stdout_contains": [
+        "phases must be a list"
+      ]
+    },
+    "invalid/duplicate_id.json": {
+      "exit": 2,
+      "stdout_contains": [
+        "duplicate id"
+      ]
+    },
+    "invalid/bad_id.json": {
+      "exit": 2,
+      "stdout_contains": [
+        "id must be"
+      ]
+    },
+    "invalid/bad_date.json": {
+      "exit": 2,
+      "stdout_contains": [
+        "start must be YYYY-MM-DD"
+      ]
+    },
+    "invalid/impossible_date.json": {
+      "exit": 2,
+      "stdout_contains": [
+        "end must be YYYY-MM-DD"
+      ]
+    },
+    "invalid/end_before_start.json": {
+      "exit": 2,
+      "stdout_contains": [
+        "end is before start"
+      ]
+    },
+    "invalid/actual_end_before_start.json": {
+      "exit": 2,
+      "stdout_contains": [
+        "actual_end is before"
+      ]
+    },
+    "invalid/step_before_phase.json": {
+      "exit": 2,
+      "stdout_contains": [
+        "starts before its phase"
+      ]
+    },
+    "invalid/step_after_phase.json": {
+      "exit": 2,
+      "stdout_contains": [
+        "ends after its phase"
+      ]
+    },
+    "invalid/bad_status.json": {
+      "exit": 2,
+      "stdout_contains": [
+        "status 'WIP'"
+      ]
+    },
+    "invalid/missing_name.json": {
+      "exit": 2,
+      "stdout_contains": [
+        "name must be"
+      ]
+    },
+    "invalid/evidence_number.json": {
+      "exit": 2,
+      "stdout_contains": [
+        "evidence must be a string"
+      ]
+    },
+    "invalid/not_json.json": {
+      "exit": 2,
+      "stderr_contains": [
+        "not valid JSON"
+      ]
+    },
+    "missing/does_not_exist.json": {
+      "exit": 1,
+      "stderr_contains": [
+        "not found"
+      ]
+    }
+  },
+  "commands": [
+    {
+      "file": "valid/full.json",
+      "args": [
+        "--today",
+        "2026-11-02",
+        "next",
+        "--count",
+        "2"
+      ],
+      "exit": 0,
+      "stdout_contains": [
+        "p2-s1 | Core engine",
+        "p2-s2 | First screen"
+      ]
+    },
+    {
+      "file": "valid/full.json",
+      "args": [
+        "--today",
+        "2026-12-12",
+        "show"
+      ],
+      "exit": 0,
+      "stdout_contains": [
+        "Current phase: Build (p2, IN_PROGRESS)",
+        "Current step:  Core engine (p2-s1, IN_PROGRESS)",
+        "p1-s2 Pick the stack [DONE]",
+        "slipped 2 day(s)",
+        "late 12 day(s)"
+      ]
+    },
+    {
+      "file": "valid/full.json",
+      "args": [
+        "--today",
+        "2026-12-12",
+        "render-status"
+      ],
+      "exit": 0,
+      "stdout_contains": [
+        "<!-- kickoff:where-we-are -->",
+        "Progress: 2 of 5 step(s) DONE",
+        "Priority: 20"
+      ]
+    },
+    {
+      "file": "valid/full.json",
+      "args": [
+        "set-status",
+        "nope",
+        "DONE"
+      ],
+      "exit": 1,
+      "stderr_contains": [
+        "no phase or step with id nope"
+      ]
+    },
+    {
+      "file": "valid/full.json",
+      "args": [
+        "set-status",
+        "p2-s1",
+        "WIP-ish"
+      ],
+      "exit": 1,
+      "stderr_contains": [
+        "unknown status"
+      ]
+    },
+    {
+      "file": "invalid/duplicate_id.json",
+      "args": [
+        "set-status",
+        "p1",
+        "DONE"
+      ],
+      "exit": 2,
+      "stderr_contains": [
+        "invalid plan file"
+      ]
+    }
+  ]
+}

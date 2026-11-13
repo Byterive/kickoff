@@ -1,0 +1,6 @@
+build/
+.gradle/
+Pods/
+*.keystore
+*.jks
+local.properties

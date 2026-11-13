@@ -1,0 +1,6 @@
+#!/bin/sh
+# Install: copy to .git/hooks/pre-commit  (Windows Git Bash runs it as-is)
+# Regenerates indexes, stages them, then enforces budgets. Blocks the commit on failure.
+python tools/build_index.py || exit 1
+git add -- '*INDEX.md' 2>/dev/null
+python tools/check_budgets.py || { echo "Fix budget violations, then commit again."; exit 1; }

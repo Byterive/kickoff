@@ -1,0 +1,10 @@
+{
+  "schema": 1,
+  "phases": [
+    {
+      "id": "p1",
+      "name": "A",
+      "status": "WIP"
+    }
+  ]
+}

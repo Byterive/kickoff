@@ -1,0 +1,19 @@
+{
+  "schema": 1,
+  "priority": 10,
+  "owner": "someone",
+  "phases": [
+    {
+      "id": "p1",
+      "name": "Phase",
+      "colour": "teal",
+      "steps": [
+        {
+          "id": "p1-s1",
+          "name": "Step",
+          "notes": "keep me"
+        }
+      ]
+    }
+  ]
+}

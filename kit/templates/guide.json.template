@@ -1,0 +1,9 @@
+{
+  "contract": 1,
+  "enabled": true,
+  "brand": "<project name>",
+  "versions": ["layman"],
+  "output": "docs/guide",
+  "publish": "local",
+  "hub": ""
+}
