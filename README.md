@@ -4,7 +4,7 @@
 
 Start any project in one command, and pick it up again tomorrow.
 
-Version 1.4.6 · MIT · Works with Claude Code
+Version 1.4.7 · MIT · Works with Claude Code
 
 ## What it does
 

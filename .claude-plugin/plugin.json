@@ -1,6 +1,6 @@
 {
   "name": "kickoff",
-  "version": "1.4.6",
+  "version": "1.4.7",
   "description": "Start any project in one command: brief interview, per-project plugin set, folders, status, decisions, gitignore, health check, resume and wrap-up. Built-in and custom profiles, safety hooks, three review agents.",
   "author": {
     "name": "Junaid Iqbal",
@@ -15,5 +15,6 @@
     "profiles"
   ],
   "homepage": "https://byterive.com",
+  "privacyPolicyUrl": "https://github.com/Byterive/kickoff/blob/main/PRIVACY.md",
   "repository": "https://github.com/Byterive/kickoff"
 }
